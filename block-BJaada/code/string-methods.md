@@ -22,11 +22,11 @@ Example:
    - Return: character at specific index in the string (string data type)
    - Example:
      ```js
-     let name = 'Arya Stark';
+     let name = "Arya Stark";
      name.charAt(2); //"y"
-     let sentance = 'A quick brown fox jumped over a lazy dog';
+     let sentance = "A quick brown fox jumped over a lazy dog";
      sentance(4); // "i"
-     let houseName = 'Starks';
+     let houseName = "Starks";
      houseName.charAt(0); // "S"
      ```
    - `charAt` accepts a index (number data type) and return the character on that index in the string.
@@ -48,3 +48,36 @@ Example:
 16. `slice`
 17. `split`
 18. `substring`
+
+19. `charAt`
+
+    - Parameter: (index) defaults to 0 - (number data type)
+    - Return: character at specific index in the string (string data type)
+    - Example:
+      ```js
+      let name = "Arya Stark";
+      name.charAt(2); //"y"
+      let sentance = "A quick brown fox jumped over a lazy dog";
+      sentance(4); // "i"
+      let houseName = "Starks";
+      houseName.charAt(0); // "S"
+      ```
+    - `charAt` accepts a index (number data type) and return the character on that index in the string.
+
+20. `toUpperCase`
+21. `toLowerCase`
+22. `trim`
+23. `trimEnd`
+24. `trimStart`
+25. `concat`
+26. `endsWith`
+27. `includes`
+28. `indexOf`
+29. `lastIndexOf`
+30. `padEnd`
+31. `padStart`
+32. `repeat`
+33. `replace`
+34. `slice`
+35. `split`
+36. `substring`

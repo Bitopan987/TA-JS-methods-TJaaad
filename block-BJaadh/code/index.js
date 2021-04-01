@@ -19,16 +19,20 @@ console.log(strings.join(" "));
 // - Add two new words in the strings array "called" and "sentance"
 strings.push("called", "sentance");
 console.log(strings);
+// strings.splice(0, 0, "called", "sentance" )
 // - Again convert the updated array (strings) into sentance like "This is a collection of words called sentance"
 console.log(strings.join(" "));
 // - Remove the first word in the array (strings)
 strings.shift();
 console.log(strings);
-// - Find all the words that contain 'is' use string method 'includes'
-let result = strings.filter((item) => {
-  return item.includes("is");
-});
+//   - Find all the words that contain 'is' use string method 'includes'
+let result = strings.filter((item) => item.includes("is"));
+
 console.log(result);
+// let result = strings.filter((item) => {
+//   return item.includes("is");
+// });
+// console.log(result);
 // - Find all the words that contain 'is' use string method 'indexOf'
 result = strings.filter((item) => {
   return item.indexOf("is") !== -1;
@@ -52,20 +56,15 @@ console.log(sorted);
 strings.pop();
 console.log(strings);
 // - Find largest number in numbers
-console.log(sorted[sorted.length - 1]);
+let largestNum = numbers.sort((a, b) => a - b).pop();
+console.log(largestNum);
+// console.log(sorted[sorted.length - 1]);
 // - Find longest string in strings
-// let finalResult = function longestNum(arr) {
-//   let longest = " ";
-//   arr.map((str) => {
-//     if (str.length > longest.length) {
-//       longest = str;
-//     }
-//     return longest;
-//   });
-// };
-// longestNum(strings);
-// console.log(finalResult);
+let largestString = strings.sort((a, b) => a.length - b.length).pop();
+console.log(largestString);
+
 // - Find all the even numbers
+
 let evenNum = numbers.filter((num) => {
   return num % 2 === 0;
 });
@@ -76,33 +75,67 @@ let oddNum = numbers.filter((num) => {
 });
 console.log(oddNum);
 // - Place a new word at the start of the array use (unshift)
-strings.unshift("What");
+strings.unshift("New Word");
 console.log(strings);
 // - Make a subset of numbers array [18,9,7,11]
-
+console.log(numbers.slice(3, 7));
 // - Make a subset of strings array ['a','collection']
-
+console.log(strings.slice(3, 5));
 // - Replace 12 & 18 with 1221 and 1881
-let final1 = numbers.replace(12, 1221);
-let final2 = numbers.replace(18, 1881);
-console.log(final1, final2);
+final = numbers.map((num) => {
+  if (num === 12) {
+    return 1221;
+  } else if (num === 18) {
+    return 1881;
+  } else {
+    return num;
+  }
+});
+console.log(final);
 // - Replace words in strings array with the length of the word
-
+let outcome = strings.map((str) => str.length);
+console.log(outcome);
 // - Find the sum of the length of words using above question
-
+result = outcome.reduce((acum, cv) => {
+  acum = acum + cv;
+  return acum;
+}, 0);
+console.log(result);
 // - Customers Array
 var customers = [
   { firstname: "Joe", lastname: "Blogs" },
   { firstname: "John", lastname: "Smith" },
   { firstname: "Dave", lastname: "Jones" },
-  { firstname: "Jack", lastname: "White" },
+  { firstname: "Jpd", lastname: "White" },
 ];
 // - Find all customers whose firstname starts with 'J'
+result = customers.filter((item) => item.firstname.startsWith("J"));
 
+console.log(result);
 // - Create new array with only first name
+firstName = customers.map((item) => item.firstname);
 
+console.log(firstName);
 // - Create new array with all the full names (ex: "Joe Blogs")
+customerFullName = customers.map(
+  (item) => `${item.firstname} ${item.lastname}`
+);
 
+console.log(customerFullName);
 // - Sort the array created above alphabetically
-
+console.log([...customerFullName].sort());
 // - Create a new array that contains only user who has at least one vowel in the firstname.
+result = customers.filter((customer) => {
+  if (
+    customer.firstname.toLowerCase().includes("a") ||
+    customer.firstname.toLowerCase().includes("e") ||
+    customer.firstname.toLowerCase().includes("i") ||
+    customer.firstname.toLowerCase().includes("o") ||
+    customer.firstname.toLowerCase().includes("u")
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+});
+console.log(result);

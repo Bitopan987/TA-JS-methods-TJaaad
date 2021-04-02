@@ -10,22 +10,26 @@ let words = [
 ];
 
 // - Write a function findLongestWord that takes an array of words and returns the longest word from the array. (Use above array "words" to test it). If there are 2 with the same length, it should return the first occurrence.
-function findLongestWord(arr) {
-  let longest = " ";
-  arr.map(function (str) {
-    if (str.length > longest.length) {
-      longest = str;
-    }
-  });
-  return longest;
+// function findLongestWord(arr) {
+//   let longest = " ";
+//   arr.map(function (str) {
+//     if (str.length > longest.length) {
+//       longest = str;
+//     }
+//   });
+//   return longest;
+// }
+
+// let result = findLongestWord(words);
+
+function findLongestWord(array) {
+  return [...array].sort((a, b) => a.length - b.length).pop();
 }
-
-let result = findLongestWord(words);
-
+findLongestWord(words);
 // - Convert the above array "words" into an array of length of word instead of word.
 words.map((word) => word.length);
 // - Create a new array that only contains word with atleast one vowel.
-let final = words.filter((word) => {
+let checkVowel = words.filter((word) => {
   if (
     word.toLowerCase().includes("a") ||
     word.toLowerCase().includes("e") ||
@@ -39,7 +43,8 @@ let final = words.filter((word) => {
   }
 });
 // - Find the index of the word "rhythm"
-words.indexOf("rhythm");
+// words.indexOf("rhythm");
+words.findIndex((w) => w === "rhythm");
 // - Create a new array that contians words not starting with vowel.
 let startWith = words.filter((word) => {
   if (
@@ -54,6 +59,8 @@ let startWith = words.filter((word) => {
     return true;
   }
 });
+
+let checkNotVowel = words.filter((word) => !checkVowel(word[0]));
 // - Create a new array that contianse words not ending with vowel
 let endWith = words.filter((word) => {
   if (
@@ -79,7 +86,7 @@ function sumArray(arr) {
 }
 let sumOfArray = sumArray(numbers);
 // - Make a new array that contains number multiplied by 3 like [6, 18, 27 ...]
-result = numbers.map((number) => number * 3);
+result = numbers.filter((number) => number % 3 === 0);
 // - Create a new array that contains only even numbers
 let evenNum = numbers.filter((number) => number % 2 === 0);
 // - Create  a new array that contains only odd numbers.
@@ -125,4 +132,4 @@ function averageNumbers(arr) {
   }, 0);
   return sum / arr.length;
 }
-let avgeString = averageNumbers(string);
+let avgeString = averageNumbers(strings);

@@ -22,6 +22,11 @@ let gradeTotal = gradeFilter.reduce((acc, cv) => {
 }, 0);
 let gradeAvg = gradeTotal / gradeFilter.length;
 
+let gradeTotal = persons.reduce((acc, cv) => {
+  return acc + cv.grade;
+}, 0);
+let gradeAvg = gradeTotal / persons.length;
+
 // Find the average grade of male
 let maleGrade = persons
   .filter((person) => person.sex === "M")
@@ -87,27 +92,37 @@ that fruit has appeared in the array. Store it in new variable fruitsObj
 Output: 
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
-let fruitsObj = { banana: 0, cherry: 0, orange: 0, apple: 0, fig: 0 };
-fruitBasket.forEach((value) => {
-  switch (true) {
-    case value === "banana":
-      fruitsObj.banana += 1;
-      break;
-    case value === "banana":
-      fruitsObj.banana += 1;
-      break;
-    case value === "banana":
-      fruitsObj.banana += 1;
-      break;
-    case value === "banana":
-      fruitsObj.banana += 1;
-      break;
-    case value === "banana":
-      fruitsObj.banana += 1;
-      break;
-  }
-});
+// let fruitsObj = { banana: 0, cherry: 0, orange: 0, apple: 0, fig: 0 };
+// fruitBasket.forEach((value) => {
+//   switch (true) {
+//     case value === "banana":
+//       fruitsObj.banana += 1;
+//       break;
+//     case value === "cherry":
+//       fruitsObj.cherry += 1;
+//       break;
+//     case value === "orange":
+//       fruitsObj.orange += 1;
+//       break;
+//     case value === "apple":
+//       fruitsObj.apple += 1;
+//       break;
+//     case value === "fig":
+//       fruitsObj.fig += 1;
+//       break;
+//     default:
+//       break;
+//   }
+// });
 
+let fruitsObj = fruitBasket.reduce((acc, cv) => {
+  if (acc[cv]) {
+    acc[cv] = acc[cv] + 1;
+  } else {
+    acc[cv] = 1;
+  }
+  return acc;
+}, {});
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
@@ -117,6 +132,33 @@ Output:
 
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
+// let fruitsObj = [['banana', 0], ['cherry', 0], ['orange', 0], ['apple', 0], ['fig', 0]]
+// fruitBasket.forEach((value) => {
+//   switch (true) {
+//     case value === "banana":
+//       fruitsObj.banana += 1;
+//       break;
+//     case value === "cherry":
+//       fruitsObj.cherry += 1;
+//       break;
+//     case value === "orange":
+//       fruitsObj.orange += 1;
+//       break;
+//     case value === "apple":
+//       fruitsObj.apple += 1;
+//       break;
+//     case value === "fig":
+//       fruitsObj.fig += 1;
+//       break;
+//     default:
+//       break;
+//   }
+// });
+
+let fruitsArray = Object.keys(fruitBasket).reduce((acc, cv) => {
+  acc = acc.concat([[cv, fruitBasket[cv]]]);
+  return acc;
+}, []);
 
 const data = [
   [1, 2, 3],

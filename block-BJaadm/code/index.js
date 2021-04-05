@@ -101,11 +101,12 @@ startwithJJ = persons
   .map((m) => m.grade);
 [...startwithJJ].sort((a, b) => a - b).pop();
 // Sort the peopleGrade in ascending order and log the value of peopleGrade. Notice did the elements of peopleGrade got changed?
-
+console.log([...peopleGrade].sort((a,b) => a - b))
 // Sort the peopleGrade in descending order
-
+console.log([...peopleGrade].sort((a,b) => b - a))
 // Sort the peopleGrade in descending order this time you have to make sure you don't mutate the original array
-
+console.log([...peopleGrade].sort((a,b) => b - a))
 // Sort the array peopelName in ascending `ABCD..Za....z`
-
+peopleName.sort();
 // Sort the array peopelName in ascending `ABCD..Za....z`. Make sure not to mutate the array
+[...peopleName].sort();

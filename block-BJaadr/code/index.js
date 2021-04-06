@@ -1,13 +1,17 @@
 // NOTE: You can only use the (reduce) array method to solve this exercise:
 
 function countAllPeople() {
-  got.houses.reduce((acc, cv) => {
-    return acc + cv.people.length;
+  return got.houses.reduce((acc, cv) => {
+    acc = acc + cv.people.length;
+    return acc;
   }, 0);
 }
 
 function peopleByHouses() {
-  // your code goes here
+  got.houses.reduce((acc, cv) => {
+    acc = acc + cv.people.length;
+    return acc;
+  });
 }
 
 function everyone() {

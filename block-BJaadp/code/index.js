@@ -1,46 +1,82 @@
 let persons = [
-  { name: 'John', grade: 8, sex: 'M' },
-  { name: 'Sarah', grade: 12, sex: 'F' },
-  { name: 'Bob', grade: 16, sex: 'M' },
-  { name: 'Johnny', grade: 2, sex: 'M' },
-  { name: 'Ethan', grade: 4, sex: 'M' },
-  { name: 'Paula', grade: 18, sex: 'F' },
-  { name: 'Donald', grade: 5, sex: 'M' },
-  { name: 'Jennifer', grade: 13, sex: 'F' },
-  { name: 'Courtney', grade: 15, sex: 'F' },
-  { name: 'Jane', grade: 9, sex: 'F' },
-  { name: 'John', grade: 17, sex: 'M' },
-  { name: 'Arya', grade: 14, sex: 'F' },
+  { name: "John", grade: 8, sex: "M" },
+  { name: "Sarah", grade: 12, sex: "F" },
+  { name: "Bob", grade: 16, sex: "M" },
+  { name: "Johnny", grade: 2, sex: "M" },
+  { name: "Ethan", grade: 4, sex: "M" },
+  { name: "Paula", grade: 18, sex: "F" },
+  { name: "Donald", grade: 5, sex: "M" },
+  { name: "Jennifer", grade: 13, sex: "F" },
+  { name: "Courtney", grade: 15, sex: "F" },
+  { name: "Jane", grade: 9, sex: "F" },
+  { name: "John", grade: 17, sex: "M" },
+  { name: "Arya", grade: 14, sex: "F" },
 ];
 
 // NOTE: Use reduce method whereever you can to solve this exercise:
 
 // Find the average grade
+let gradeFilter = persons.map((person) => person.grade);
+let gradeTotal = gradeFilter.reduce((acc, cv) => {
+  return acc + cv;
+}, 0);
+let gradeAvg = gradeTotal / gradeFilter.length;
 
 // Find the average grade of male
-
+let maleGrade = persons
+  .filter((person) => person.sex === "M")
+  .map((w) => w.grade);
+let malegradeTotal = maleGrade.reduce((acc, cv) => {
+  return acc + cv;
+}, 0);
+let malegradeAvg = malegradeTotal / maleGrade.length;
 // Find the average grade of female
-
+let femaleGrade = persons
+  .filter((person) => person.sex === "F")
+  .map((w) => w.grade);
+let femalegradeTotal = femaleGrade.reduce((acc, cv) => {
+  return acc + cv;
+}, 0);
+let femalegradeAvg = femalegradeTotal / femaleGrade.length;
 // Find the highest grade
-
+let highestGrade = persons
+  .map((w) => w.grade)
+  .sort((a, b) => a - b)
+  .pop();
 // Find the highest grade in male
+let highestGradeMale = persons
+  .filter((person) => person.sex === "M")
+  .map((w) => w.grade)
+  .sort((a, b) => a - b)
+  .pop();
 
 // Find the highest grade in female
-
+let highestGradeFemale = persons
+  .filter((person) => person.sex === "F")
+  .map((w) => w.grade)
+  .sort((a, b) => a - b)
+  .pop();
 // Find the highest grade for people whose name starts with 'J' or 'P'
+let highOfJP = persons
+  .filter(
+    (person) => person.name.startsWith("J") || person.name.startsWith("P")
+  )
+  .map((w) => w.grade)
+  .sort((a, b) => a - b)
+  .pop();
 
 const fruitBasket = [
-  'banana',
-  'cherry',
-  'orange',
-  'apple',
-  'cherry',
-  'orange',
-  'apple',
-  'banana',
-  'cherry',
-  'orange',
-  'fig',
+  "banana",
+  "cherry",
+  "orange",
+  "apple",
+  "cherry",
+  "orange",
+  "apple",
+  "banana",
+  "cherry",
+  "orange",
+  "fig",
 ];
 
 /* 
@@ -51,6 +87,26 @@ that fruit has appeared in the array. Store it in new variable fruitsObj
 Output: 
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
+let fruitsObj = { banana: 0, cherry: 0, orange: 0, apple: 0, fig: 0 };
+fruitBasket.forEach((value) => {
+  switch (true) {
+    case value === "banana":
+      fruitsObj.banana += 1;
+      break;
+    case value === "banana":
+      fruitsObj.banana += 1;
+      break;
+    case value === "banana":
+      fruitsObj.banana += 1;
+      break;
+    case value === "banana":
+      fruitsObj.banana += 1;
+      break;
+    case value === "banana":
+      fruitsObj.banana += 1;
+      break;
+  }
+});
 
 /* 
 
@@ -90,16 +146,16 @@ Create these functions which accepts a number value and returns a number value:
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 */
 
-let pipeline = [
-  increment,
-  double,
-  decrement,
-  decrement,
-  double,
-  triple,
-  half,
-  increment,
-];
+// let pipeline = [
+//   increment,
+//   double,
+//   decrement,
+//   decrement,
+//   double,
+//   triple,
+//   half,
+//   increment,
+// ];
 
 /*
 Using the pipeline variable that contains the collection of functions, taking the initial value 3 find the output.
@@ -115,18 +171,18 @@ EXAMPLE:
   ...
 */
 
-let pipeline2 = [
-  increment,
-  half,
-  double,
-  decrement,
-  decrement,
-  triple,
-  double,
-  triple,
-  half,
-  increment,
-  triple,
-];
+// let pipeline2 = [
+//   increment,
+//   half,
+//   double,
+//   decrement,
+//   decrement,
+//   triple,
+//   double,
+//   triple,
+//   half,
+//   increment,
+//   triple,
+// ];
 
 // Find the output using pipeline2 the initial value if 8
